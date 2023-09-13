@@ -1,0 +1,39 @@
+use_gpu: true
+
+data:
+    image_dir: /home/admin/workspace/bppm/input
+    output_dir: /home/admin/workspace/bppm/output
+    pixel_cuts: 30,0
+
+    resize_output: true
+    out_resolution: 1920,1080
+
+    save_process: true
+    
+model:
+    Seg_path: /home/admin/workspace/bppm/image_stitching/models/seg.pth
+    GeoTr_path: /home/admin/workspace/bppm/image_stitching/models/geotr.pth
+    
+algorithm:
+    stitcher:
+        stitch_vert_first: false
+        multiband_blending: true
+
+    view_for_user:
+        make_view: true
+        stitch: 'vert'
+
+    rectangling:
+        apply_rectangling: true
+        warp_instead_of_crop: false
+        crop_frac: 0.60
+
+    postprocessing:
+        apply_postprocessing: true
+        brightness_ratio: 1.0
+        brightness_pixel: -20
+        saturation_ratio: 1.2
+        saturation_pixel: 20
+
+    
+    
